@@ -42,11 +42,11 @@ import {onMounted, ref} from "vue";
         <div class="mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8">
             <p class="text-base font-semibold leading-8 text-white">Real Time Laravel Demo</p>
             <h1 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">Hello, Manc Web!</h1>
-            <p class="mt-4 text-base text-white/70 sm:mt-6">There are currently</p>
+            <p class="mt-4 text-base text-white/70 sm:mt-6">There <span v-if="counter && counter == 1">is</span><span v-else>are</span> currently</p>
             <div class="mt-10 flex text-4xl justify-center text-pink-400">
                 {{ counter }}
             </div>
-            <p class="mt-4 text-base text-white/70 sm:mt-6">people on this page.</p>
+            <p class="mt-4 text-base text-white/70 sm:mt-6"><span v-if="counter && counter == 1">person</span><span v-else>people</span>  on this page.</p>
         </div>
         <div class="mt-5 flex justify-center items-center">
             <img src="https://dontshootdg.s3.eu-west-2.amazonaws.com/79d41d007ce449f4a66935793346084f-20231207004151.png" class="w-[300px] h-[300px] absolute"/>
