@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Requests\ParticipantRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/contact', function (Request $request) {
+    \Illuminate\Support\Facades\Notification::send(
+        \App\Models\Participant::all(),
+        new \App\Notifications\DemoNotification());
+});
+
+Route::post('/participant',function (ParticipantRequest $request){
+    \App\Models\Participant::create([
+        'name' => $request->name,
+        'email_address' => $request->email,
+        'phone_number' => $request->phone
+    ]);
+    return true;
 });

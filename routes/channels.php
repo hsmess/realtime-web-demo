@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Broadcast;
-
+use Illuminate\Auth\GenericUser;
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -13,6 +13,22 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+//Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
+//    return (int) $user->id === (int) $id;
+//});
+
+Route::post('mancwebdemo/auth', function () {
+    $user = new GenericUser(['id' => microtime()]);
+
+    request()->setUserResolver(function () use ($user) {
+        return $user;
+    });
+
+    return Broadcast::auth(request());
+});
+
+Broadcast::channel('MancWebDemo', function ($user) {
+    return [
+        'id' => $user->id,
+    ];
 });
