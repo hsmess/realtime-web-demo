@@ -38,7 +38,7 @@ class DemoNotification extends Notification implements ShouldQueue
         return (new MailMessage)
                     ->subject('Hello from Harry')
                     ->line('Hello!')
-                    ->line('Thank you for watching my lightning talk at MancWeb')
+                    ->line('Thank you for watching my talk at PhpStoke')
                     ->line('I work for WEALTH at Work. We\'re pretty cool. ')
                     ->line('We help companies provide financial education and well-being to their staff')
                     ->action('Find out more','https://www.wealthatwork.co.uk/corporate/our-services/financial-education/');
