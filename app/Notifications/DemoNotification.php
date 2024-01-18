@@ -47,7 +47,7 @@ class DemoNotification extends Notification implements ShouldQueue
     public function toVonage(object $notifiable): VonageMessage
     {
         return (new VonageMessage)
-            ->content('Hello! Thanks for watching my lightning talk at MancWeb. I work for WEALTH at Work. We\'re pretty cool. We help companies provide financial education and well-being to their staff. Check us out: https://www.wealthatwork.co.uk/corporate/our-services/financial-education/');
+            ->content('Hello! Thanks for watching my lightning talk at PHPStoke. I work for WEALTH at Work. We\'re pretty cool. We help companies provide financial education and well-being to their staff. Check us out: https://www.wealthatwork.co.uk/corporate/our-services/financial-education/');
     }
 
     /**
